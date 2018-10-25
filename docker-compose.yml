@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  web:
+    image: jestevezdoker/ci
+    build:
+      cache_from:
+        - jestevezdoker/ci
+      context: .
+    depends_on:
+      - redis
+    ports:
+      - 5000:5000
+  redis:
+    image: redis
